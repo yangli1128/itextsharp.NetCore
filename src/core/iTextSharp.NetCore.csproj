@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net45;</TargetFrameworks>
+		<Version>5.5.13.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="AssemblyInfo.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="itextsharp.snk" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+		<Reference Include="System.Security" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="System.Security.Cryptography.Xml" Version="4.7.0" />
+	</ItemGroup>
+</Project>
